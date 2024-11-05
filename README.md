@@ -59,3 +59,10 @@ opm update -all
 28. Подсказали секрет как включить отладку. SET LOGOS_LEVEL=DEBUG в переменных среды. В powershell по-другому - $env:LOGOS_LEVEL="DEBUG", в маке и линуксе вот так - export LOGOS_LEVEL="DEBUG"
 Я установил просто в переменные окружения через настройки.
 29. Как итог у меня есть отладка в которой как раз показывается весь ключ запуска, который пытается выполнится, но нужно разбираться.
+30. Запуск в пакетном режиме просто точно так же ничего не выполняет и ничего не сообщает. Возможно, какие-то команды лишние и их нужно отключить, чтобы посмотреть что к чему.
+31. Сама строка запуска вот такая:
+"C:\Program Files\1Cv8\8.3.24.1667\bin\1cv8.exe" DESIGNER /F"D:\1\1.txt" /Out "D:\1\2.txt" /WA+ /LRU /VLRU /DisableStartupMessages /DisableStartupDialogs /ConfigurationRepositoryF "D:\1" /ConfigurationRepositoryCreate  -AllowConfigurationChanges -ChangesAllowedRule ObjectNotEditable -ChangesNotRecommendedRule ObjectNotEditable
+32. Запуск в терминале сообщил, что "Информационная база не обнаружена!"
+33. Поправил строку запуска так:
+"C:\Program Files\1Cv8\8.3.24.1667\bin\1cv8.exe" DESIGNER /F"D:\1\1" /Out "D:\1\2.txt" /WA+ /LRU /VLRU /DisableStartupMessages /DisableStartupDialogs /ConfigurationRepositoryF "D:\1" /ConfigurationRepositoryCreate  -AllowConfigurationChanges -ChangesAllowedRule ObjectNotEditable -ChangesNotRecommendedRule ObjectNotEditable
+34. Терминал сообщил - Создание хранилища конфигурации завершилось с ошибкой
